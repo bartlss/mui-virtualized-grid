@@ -16,20 +16,26 @@ var React = require('react');
 import { VirtualItem } from './subComponents/VirtualItem';
 
 export interface VirtualizedMUIGridProps {
+    /**Class keys for updating the styles on classes. If you choose to override the theme object to include the class keys form this component, You can import `VirtualizedMUIGridClassKey`. */
     classes?: Partial<Record<VirtualizedMUIGridClassKey, string>>;
-    /** Passing anything greater than 1 will assume Grid and not ListItem */
+    /** Controls total number of columns. Passing anything greater than 1 will assume Grid and not ListItem (i.e overrides the variant prop) */
     columns?: 1 | 2 | 3 | 4 | 6 | 12;
+    /**The height of the containing Grid container */
     containerHeight?: number | string;
+    /**an Array of data */
     data: any[];
+    /**Props for Material UI List Item */
     listItemProps?: ListItemTypeMap<
         {
             button?: false | undefined;
         },
         'li'
     >;
+    /**Message translations */
     localizationMessages?: {
         nothingToDisplay: string;
     };
+    /**Defines the number of rows to load outside of the visible area */
     preRenderRowCount?: number;
     /** component to render as item */
     renderItem: (rowData: any, rowIndex: number) => React.ReactElement;
