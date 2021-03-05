@@ -1,6 +1,8 @@
 Table of Contents
 * [Features](#features)
   * [Props](#props)
+  * [Virtualized Grid Example](#virtualized-grid-with-4-columns)
+  * [Virtualized List Example](#virtualized-list-using-the-list-and-listitem-components)
 
 # Features
 Custom Material UI Virtualized Grid increase perfomance when rendering a large amounts of data. Designed to be mobile friendly.
