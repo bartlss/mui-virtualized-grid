@@ -170,7 +170,7 @@ export const VirtualizedMUIGrid = forwardRef<
                 }}
             >
                 {data?.length ?
-                    variant == 'List' ? (
+                    variant == 'List' && columns == 1 ? (
                         <List className={classes.scrollableListContainerStyle}>
                             {rows?.map(renderRow)}
                         </List>
