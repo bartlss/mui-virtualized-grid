@@ -1,9 +1,7 @@
 ### Features
 Custom Material UI Virtualized Grid increase perfomance when rendering a large amounts of data. Designed to be mobile friendly.
 
-#### Examples
-
-####Virtualized Grid with 4 columns
+#### Virtualized Grid with 4 columns
 
 ![Virtualized Grid Demo](https://api.brickhousefiberarts.com/cdn/VirtualGrid.gif)
 
@@ -38,7 +36,7 @@ const Cell = (rowData, i) => (
     </Grid>
 </Grid>
 ```
-####Virtualized Grid with 4 columns
+#### Virtualized Grid with 4 columns
 
 ![Virtualized List Demo](https://api.brickhousefiberarts.com/cdn/VirtualList.gif)
 
