@@ -1,13 +1,18 @@
 {
     "compilerOptions": {
-      "jsx": "react",
-      "target": "es5",
-      "module": "commonjs",
-      "declaration": true,
-      "outDir": "./lib",
-      "strict": true,
-      "lib": ["ES2015", "ES2016", "ES2017", "DOM"],
+        "allowSyntheticDefaultImports": true,
+        "allowJs": true,
+        "jsx": "react",
+        "target": "es5",
+        "module": "esnext",
+        "declaration": true,
+        "outDir": "./lib",
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "lib": ["ES2015", "ES2016", "ES2017", "DOM"],
     },
-    "include": ["src"],
+    "include": ["src", "jest"],
     "exclude": ["node_modules", "**/__tests__/*"]
 }

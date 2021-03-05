@@ -11,31 +11,30 @@ import {
     withStyles,
     Typography,
 } from '@material-ui/core';
-import { forwardRef, useEffect, useRef, useState } from 'react';
-var React = require('react');
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { VirtualItem } from './subComponents/VirtualItem';
 
 export interface VirtualizedMUIGridProps {
-    /**Class keys for updating the styles on classes. If you choose to override the theme object to include the class keys form this component, You can import `VirtualizedMUIGridClassKey`. */
+    /** Class keys for updating the styles on classes. If you choose to override the theme object to include the class keys form this component, You can import `VirtualizedMUIGridClassKey`. */
     classes?: Partial<Record<VirtualizedMUIGridClassKey, string>>;
     /** Controls total number of columns. Passing anything greater than 1 will assume Grid and not ListItem (i.e overrides the variant prop) */
     columns?: 1 | 2 | 3 | 4 | 6 | 12;
-    /**The height of the containing Grid container */
+    /** The height of the containing Grid container */
     containerHeight?: number | string;
-    /**an Array of data */
+    /** an Array of data */
     data: any[];
-    /**Props for Material UI List Item */
+    /** Props for Material UI List Item */
     listItemProps?: ListItemTypeMap<
         {
             button?: false | undefined;
         },
         'li'
     >;
-    /**Message translations */
+    /** Message translations */
     localizationMessages?: {
         nothingToDisplay: string;
     };
-    /**Defines the number of rows to load outside of the visible area */
+    /** Defines the number of rows to load outside of the visible area */
     preRenderRowCount?: number;
     /** component to render as item */
     renderItem: (rowData: any, rowIndex: number) => React.ReactElement;
@@ -117,7 +116,7 @@ export const VirtualizedMUIGrid = forwardRef<
         }, [columns, data]);
 
         const renderItemsForRow = (rowData: any, i: number) => {
-            return variant == 'List' ? (
+            return variant === 'List' ? (
                 renderItem(rowData, i)
             ) : (
                 <Grid
@@ -163,15 +162,17 @@ export const VirtualizedMUIGrid = forwardRef<
             <Grid
                 className={classes.root}
                 container
+                data-testid="virtualized-grid-component"
                 ref={containerRef}
                 spacing={spacing}
                 style={{
                     height: containerHeight,
                 }}
+                
             >
                 {data?.length ?
-                    variant == 'List' ? (
-                        <List className={classes.scrollableListContainerStyle}>
+                    variant === 'List' ? (
+                        <List className={classes.scrollableListContainerStyle} data-testid="virtualized-list-component">
                             {rows?.map(renderRow)}
                         </List>
                     ) : (
