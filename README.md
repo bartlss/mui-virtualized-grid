@@ -36,7 +36,7 @@ const Cell = (rowData, i) => (
     </Grid>
 </Grid>
 ```
-#### Virtualized Grid with 4 columns
+#### Virtualized List using the List and ListItem Components
 
 ![Virtualized List Demo](https://api.brickhousefiberarts.com/cdn/VirtualList.gif)
 
