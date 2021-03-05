@@ -3,6 +3,9 @@ Custom Material UI Virtualized Grid increase perfomance when rendering a large a
 
 #### Examples
 
+####Virtualized Grid with 4 columns
+
+![Virtualized Grid Demo](https://api.brickhousefiberarts.com/cdn/VirtualGrid.gif)
 
 ```jsx
 import { Grid, Paper, Typography, Icon, ButtonInput, useTheme } from 'lib';
@@ -14,12 +17,6 @@ const { spacing } = useTheme();
 
 const Cell = (rowData, i) => (
     <Paper fullWidth fullHeight key={`${i}_Grid`}>
-        <Typography variant="button">item cell {i}</Typography>
-    </Paper>
-);
-
-const ListCell = (rowData, i) => (
-    <Paper fullWidth fullHeight key={`${i}_List`}>
         <Typography variant="button">item cell {i}</Typography>
     </Paper>
 );
@@ -39,7 +36,28 @@ const ListCell = (rowData, i) => (
             spacing={2}
         />
     </Grid>
+</Grid>
+```
+####Virtualized Grid with 4 columns
 
+![Virtualized List Demo](https://api.brickhousefiberarts.com/cdn/VirtualList.gif)
+
+```jsx
+import { Grid, Paper, Typography, Icon, ButtonInput, useTheme } from 'lib';
+const rowHeights = new Array(1000)
+  .fill(true)
+  .map(() => 25 + Math.round(Math.random() * 50));
+
+const { spacing } = useTheme();
+
+
+const ListCell = (rowData, i) => (
+    <Paper fullWidth fullHeight key={`${i}_List`}>
+        <Typography variant="button">item cell {i}</Typography>
+    </Paper>
+);
+
+<Grid container spacing={2}>
     <Grid item>
         <Typography variant="h4">Displaying a list of 1000 products. 1 per row.</Typography>
     </Grid>
@@ -51,11 +69,8 @@ const ListCell = (rowData, i) => (
             renderItem={ListCell}
             rowHeight={75}
             spacing={2}
-            type="List"
+            variant="List"
         />
     </Grid>
 </Grid>
-
-
-
 ```
