@@ -1,10 +1,11 @@
 {
-  "name": "@bartlss/mui-virtualized-grid",
+  "name": "mui-virtualized-grid",
   "version": "1.0.0",
   "description": "A Material-UI virtualization module utilizing Material-UI's Grid, List and ListItem components",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jest.config.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
@@ -46,7 +47,14 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.20",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
@@ -54,5 +62,30 @@
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.2.2"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+        "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [
+        "<rootDir>/src"
+    ],
+    "moduleNameMapper": {
+        "^react-native$": "react-native-web",
+        "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    }
   }
 }

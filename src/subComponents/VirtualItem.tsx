@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
-var React = require('react');
+import React, { useCallback, useEffect, useState } from 'react';
 import {
     Grid,
     GridSpacing,
@@ -59,12 +58,12 @@ export const VirtualItem: React.FC<VirtualItemProps> = ({
     const showTrigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: top - offset,
-        target: target,
+        target: target || {},
     });
     const hideBottomTrigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: top + offset,
-        target: target,
+        target: target || {},
     });
 
     const callback = useCallback(() => {
@@ -82,16 +81,16 @@ export const VirtualItem: React.FC<VirtualItemProps> = ({
     }, [callback]);
 
     if (canShow) {
-        if (variant == 'List') {
+        if (variant === 'List') {
             return (
-                <ListItem {...listItemProps} className={classes.rowList}>
+                <ListItem {...listItemProps} className={classes.rowList} data-testid="virtualized-listitem-component">
                     {children}
                 </ListItem>
             );
         }
 
         return (
-            <Grid container  className={classes.rowGrid} item spacing={spacing}>
+            <Grid container className={classes.rowGrid} item spacing={spacing} data-testid="virtualized-grid-item-component">
                 {children}
             </Grid>
         );
