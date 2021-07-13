@@ -4,8 +4,26 @@ Table of Contents
   * [Virtualized Grid Example](#virtualized-grid-with-4-columns)
   * [Virtualized List Example](#virtualized-list-using-the-list-and-listitem-components)
 
-# Features
-Custom Material UI Virtualized Grid increase perfomance when rendering a large amounts of data. Designed to be mobile friendly.
+
+# Overview
+Mui-Virtualized-Grid is a vertical scrolling virtualized grid/list component designed using material-ui. It's intention is to be used within pages that need to load large amounts of data in a grid or list format and remain performant. It does not have its own breakpoints for mobile-desktop but expect to be told when to change the number of columns.
+
+```jsx
+    import { useMediaQuery, useTheme } from '@material-ui/core';
+    const { breakpoints } = useTheme();
+    const mobile = useMediaQuery(breakpoints.down('sm'));
+
+
+    <VirtualizedMUIGrid
+        columns={mobile ? 2 : 4}
+        containerHeight="55vh"
+        data={lotsofdata}
+        preRenderRowCount={5}
+        renderItem={() => component}
+        rowHeight={75}
+        spacing={2}
+    />
+```
 
 ## Props
 
@@ -30,7 +48,7 @@ variant               | optional          | `'Grid' or 'List'`                  
 
 ```jsx
 import { Grid, Paper, Typography, useTheme } from '@material-ui/core';
-const rowHeights = new Array(1000)
+const valueList = new Array(1000)
   .fill(true)
   .map(() => 25 + Math.round(Math.random() * 50));
 
@@ -50,7 +68,7 @@ const Cell = (rowData, i) => (
         <VirtualizedMUIGrid
             columns={4}
             containerHeight="55vh"
-            data={rowHeights}
+            data={valueList}
             preRenderRowCount={5}
             renderItem={Cell}
             rowHeight={75}
@@ -68,7 +86,7 @@ const Cell = (rowData, i) => (
 
 ```jsx
 import { Grid, Paper, Typography, useTheme } from '@material-ui/core';
-const rowHeights = new Array(1000)
+const valueList = new Array(1000)
   .fill(true)
   .map(() => 25 + Math.round(Math.random() * 50));
 
@@ -88,7 +106,7 @@ const ListCell = (rowData, i) => (
     <Grid item xs={12}>
         <VirtualizedMUIGrid
             containerHeight="55vh"
-            data={rowHeights}
+            data={valueList}
             preRenderRowCount={5}
             renderItem={ListCell}
             rowHeight={75}

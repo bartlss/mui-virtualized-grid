@@ -1,13 +1,13 @@
 {
   "name": "mui-virtualized-grid",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Material-UI virtualization module utilizing Material-UI's Grid, List and ListItem components",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jest.config.json",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\" \"src/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
@@ -77,15 +77,15 @@
       "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-        "^.+\\.module\\.(css|sass|scss)$"
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
     ],
     "modulePaths": [
-        "<rootDir>/src"
+      "<rootDir>/src"
     ],
     "moduleNameMapper": {
-        "^react-native$": "react-native-web",
-        "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     }
   }
 }

@@ -21,6 +21,8 @@ export interface VirtualizedMUIGridProps {
     preRenderRowCount?: number;
     /** component to render as item */
     renderItem: (rowData: any, rowIndex: number) => React.ReactElement;
+    /** A unique key within your data to use for the key prop in our map */
+    renderItemKey: string | number;
     /** Defines the height of each row */
     rowHeight: number;
     spacing?: GridSpacing;
@@ -41,5 +43,5 @@ export declare const VirtualizedMUIGrid: React.ForwardRefExoticComponent<Virtual
 } & React.RefAttributes<any>>;
 declare const _default: React.ComponentType<Pick<VirtualizedMUIGridProps & {
     component?: React.ElementType<any> | undefined;
-} & React.RefAttributes<any>, "data" | "columns" | "component" | "variant" | "spacing" | "listItemProps" | "localizationMessages" | "containerHeight" | "preRenderRowCount" | "renderItem" | "rowHeight" | keyof React.RefAttributes<any>> & import("@material-ui/core").StyledComponentProps<VirtualizedMUIGridClassKey> & VirtualizedMUIGridProps>;
+} & React.RefAttributes<any>, "data" | "columns" | "component" | "variant" | "spacing" | "listItemProps" | "localizationMessages" | "containerHeight" | "preRenderRowCount" | "renderItem" | "renderItemKey" | "rowHeight" | keyof React.RefAttributes<any>> & import("@material-ui/core").StyledComponentProps<VirtualizedMUIGridClassKey> & VirtualizedMUIGridProps>;
 export default _default;
